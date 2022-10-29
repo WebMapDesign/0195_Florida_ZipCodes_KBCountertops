@@ -1,0 +1,169 @@
+body {
+  margin: 0px;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Lato", sans-serif;
+}
+
+.test {
+  color: #c59d34;
+}
+
+/* window width > 1200px */
+.grid-container {
+  display: grid; /* initiate CSS Grid */
+  grid-template-columns: auto 500px;
+  grid-template-rows: 100vh auto;
+}
+
+#map-container {
+  grid-area: 1/1/2/2;
+  border: 3px solid #8f8f8f;
+  margin: 10px;
+}
+
+#table-container {
+  grid-area: 1/2/3/3;
+  border: 3px solid #8f8f8f;
+  margin: 10px;
+}
+
+/*window width < 1200px*/
+@media (max-width: 1200px) {
+  .grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 600px auto;
+  }
+
+  #map-container {
+    grid-area: 1/1/2/3;
+    border: 3px solid #8f8f8f;
+    margin: 10px;
+  }
+
+  #table-container {
+    grid-area: 2/1/3/3;
+    border: 3px solid #8f8f8f;
+    margin: 10px;
+  }
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+.popup-title {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.popup-title-centered {
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.popup-text {
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.leaflet-pseudo-fullscreen {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 10px;
+  z-index: 99999;
+}
+
+.leaflet-control-zoom-fullscreen {
+  background-image: url(../images/icon-fullscreen.png);
+}
+
+.leaflet-retina.leaflet-control-zoom-fullscreen {
+  background-image: url(../images/icon-fullscreen-2x.png);
+  background-size: 26px 26px;
+}
+
+.leaflet-control-zoom {
+  border-bottom: 1px solid #ccc;
+}
+
+.info {
+  padding: 6px 8px;
+  background-color: #ffffff;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
+.legend {
+  line-height: 24px;
+  color: #555;
+}
+.legend i {
+  float: left;
+  width: 30px;
+  height: 18px;
+  margin-right: 10px;
+  opacity: 1;
+  border: 1px solid black;
+}
+
+#table-data {
+  position: relative;
+  width: 100%;
+}
+
+#table-zipcodes {
+  position: relative;
+  width: 100%;
+}
+
+table,
+th,
+td {
+  font-size: 12px;
+  line-height: 16px;
+  text-align: left;
+}
+
+th {
+  padding: 5px 5px 5px 5px;
+  font-weight: 600;
+  background-color: #c59d34;
+  text-align: center;
+}
+
+tr {
+  padding: 10px;
+  background-color: #f3f3f3;
+}
+
+/*  change color of row when zipcode is highlighted */
+.highlighted-row {
+  padding: 10px;
+  background-color: #c59d34;
+}
+
+/*  change color of row when table row is highlighted */
+tr:hover {
+  padding: 10px;
+  background-color: #c59d34;
+}
+
+td {
+  padding: 5px 5px 5px 5px;
+  font-weight: 400;
+}
+
+.map-logo {
+  background-color: #ffffff;
+  padding: 15px;
+}
+
+.star {
+  font-size: 15px;
+}
