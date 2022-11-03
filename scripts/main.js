@@ -23,8 +23,7 @@ let tr = tableZipcodes.insertRow(-1);
 for (let i = 0; i < tableHeaders.length; i++) {
   let th = document.createElement("th");
   tr.appendChild(th);
-  th.outerHTML =
-    "<th onclick=" + "sortTable(" + i + ")>" + tableHeaders[i] + "</th>";
+  th.outerHTML = "<th>" + tableHeaders[i] + "</th>";
 }
 
 let maxSize = Math.max(
@@ -47,51 +46,6 @@ for (let i = 0; i < maxSize; i++) {
 
 divNewTable.innerHTML = "";
 divNewTable.appendChild(tableZipcodes);
-
-let sortOrder = true;
-
-// sort table numerically
-function sortTable(n) {
-  let tableZipcodes = document.getElementById("table-zipcodes");
-  let switchcount = 0;
-  let switching = true;
-  // let dir = "asc";
-  let shouldSwitch = true;
-  let i;
-
-  while (switching) {
-    switching = false;
-    let rows = tableZipcodes.rows;
-
-    for (i = 1; i < rows.length - 1; i++) {
-      shouldSwitch = false;
-      let x = rows[i].getElementsByTagName("TD")[n];
-      let y = rows[i + 1].getElementsByTagName("TD")[n];
-      if (sortOrder == true) {
-        if (parseFloat(x.innerHTML) > parseFloat(y.innerHTML)) {
-          shouldSwitch = true;
-          break;
-        }
-      } else if (sortOrder == false) {
-        if (parseFloat(x.innerHTML) < parseFloat(y.innerHTML)) {
-          shouldSwitch = true;
-          break;
-        }
-      }
-    }
-
-    if (shouldSwitch) {
-      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-      switching = true;
-      switchcount++;
-    } else {
-      if (switchcount == 0 && sortOrder == true) {
-        sortOrder = false;
-        switching = true;
-      }
-    }
-  }
-}
 
 let selectedTable = document.getElementById("table-zipcodes");
 let tableBody = selectedTable.getElementsByTagName("tbody")[0];
